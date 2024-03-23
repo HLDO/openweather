@@ -82,6 +82,8 @@ class WeatherCitiesControllerTest extends TestCase
         // Create some test cities in the database
         $city = WeatherCities::factory()->create();
         $city->name = "São Paulo";
+        $city->country = "BR";
+        $city->city_id = 3448439;
 
         $payload = $city->toArray();
         $payload['_token'] = csrf_token();
@@ -89,7 +91,7 @@ class WeatherCitiesControllerTest extends TestCase
         // Update data by city id
         $this->put('/weather-cities/'.$city->id, $payload);
 
-        $this->assertDatabaseHas('weather_cities',['id'=> $city->id, 'name' => 'São Paulo']);
+        $this->assertDatabaseHas('weather_cities',['id'=> $city->id, 'name' => 'São Paulo', 'country' => 'BR', 'city_id' => 3448439]);
     }
 
     public function test_can_delete_city(): void
