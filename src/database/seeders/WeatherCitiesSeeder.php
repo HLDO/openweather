@@ -26,7 +26,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -40,7 +40,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -54,7 +54,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -68,7 +68,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -82,7 +82,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -96,7 +96,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -110,7 +110,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -124,7 +124,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -138,7 +138,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -152,7 +152,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -166,7 +166,7 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         WeatherCities::create([
@@ -180,9 +180,10 @@ class WeatherCitiesSeeder extends Seeder
             'feels_like'            => '22',
             'humidity'              => '55',
             'created_at'            => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at'            => Carbon::now()->subMinutes(60)->format('Y-m-d H:i:s'),
+            'updated_at'            => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
-        Artisan::call('command:weather_update');
+        // Force weather update
+        Artisan::call('command:weather_update', ['--force' => true]);
     }
 }

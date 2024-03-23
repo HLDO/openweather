@@ -38,6 +38,7 @@ class WeatherCities extends Model
     protected $fillable = [
         'city_id',
         'name',
+        'country',
         'weather_description',
         'weather_icon',
         'temp',

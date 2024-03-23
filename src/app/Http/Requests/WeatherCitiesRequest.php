@@ -24,6 +24,7 @@ class WeatherCitiesRequest extends FormRequest
     {
         return [
             'name'                  => 'required|string|max:255',
+            'country'               => 'required|string|max:2',
             'city_id'               => 'required|integer',
             'weather_description'   => 'required|string|max:100',
             'weather_icon'          => 'required|string|max:10',

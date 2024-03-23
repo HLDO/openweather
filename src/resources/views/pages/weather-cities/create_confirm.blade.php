@@ -13,7 +13,7 @@
             </div>
             <div class="card-body p-3 pb-0">
                 <div class="alert alert-primary alert-dismissible text-white text-center" role="alert">
-                    <span class="text-sm">Verifique se as informações estão corretas e clique em "Confirmar e gravar" para adicionar a nova cidade.</span>
+                    <span class="text-sm">{{ !$db_found ? 'Verifique se as informações estão corretas e clique em "Confirmar e gravar" para adicionar a nova cidade.' : 'Cidade já cadastrada!' }}</span>
                     </button>
                 </div>
             </div>
@@ -64,7 +64,9 @@
                   <label for="inputHumidity">Umidade (em %)</label>
                   <input type="text" name="humidity" class="form-control border border-2 p-2" id="inputHumidity" value="{{ $city_weather->humidity }}" onfocus="focused(this)" onfocusout="defocused(this)" readonly>
                 </div>
+                @if( !$db_found )
                 <button type="submit" class="btn btn-dark mt-3">Confirmar e gravar</button>
+                @endif
                 <a class="btn bg-gradient-dark mb-0 me-4" href="{{ route('weather-cities.index') }}">Cancelar</a>
               </form>
             </div>

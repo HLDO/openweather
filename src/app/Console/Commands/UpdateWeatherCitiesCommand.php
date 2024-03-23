@@ -24,7 +24,7 @@ class UpdateWeatherCitiesCommand extends Command implements ShouldQueue
      *
      * @var string
      */
-    protected $signature = "command:weather_update {--cityid=}";
+    protected $signature = "command:weather_update {--cityid=} {--force=}";
 
     /**
      * The console command description.
@@ -52,6 +52,8 @@ class UpdateWeatherCitiesCommand extends Command implements ShouldQueue
     {
         $this->comment("Início: " . date('Y-m-d H:i:s').PHP_EOL);
 
+        $force = (bool)$this->option('force') ?? false;
+
         if( $this->option('cityid') !== null )
         {
             try
@@ -74,7 +76,15 @@ class UpdateWeatherCitiesCommand extends Command implements ShouldQueue
         {
             try
             {
-                $cities = WeatherCities::where('updated_at', '<=', Carbon::now()->subMinutes(30)->toDateTimeString())->get();
+                $cities = WeatherCities::where(function($q) use ($force)
+                                        {
+                                            // if !force = false, only considers cities last updated more than 30 minutes ago
+                                            if( !$force )
+                                            {
+                                                $q->where('updated_at', '<=', Carbon::now()->subMinutes(30)->toDateTimeString());
+                                            }
+                                        })
+                                        ->get();
                 foreach( $cities as $city )
                 {
                     $city_weather = (array)WeatherRepository::getWeatherById($city->city_id);
@@ -101,6 +111,7 @@ class UpdateWeatherCitiesCommand extends Command implements ShouldQueue
     {
         return array(
             array('cityid', InputOption::VALUE_OPTIONAL, 'Atualiza apenas o clima da cidade informada pelo seu ID OpenWeatherMap'),
+            array('force', InputOption::VALUE_OPTIONAL, 'Força a atualização climaticas'),
         );
     }
 }

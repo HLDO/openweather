@@ -58,6 +58,10 @@ docker exec openweather-php php artisan command:weather_update
 ```bash
 docker exec openweather-php php artisan command:weather_update --cityid=3448439
 ```
+- É possível também forçar a atualização das informações de clima, independente do último horário verificado, passando o parâmetro --force=true, através do comando:
+```bash
+docker exec openweather-php php artisan command:weather_update --force=true
+```
 
 ## Testes Unitários
 - Os testes unitários da aplicação abrangem acesso, cadastro, atualização de dados, remoção e consumo de informações da API do OpenWeatherMap;

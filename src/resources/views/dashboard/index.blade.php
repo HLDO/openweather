@@ -16,7 +16,8 @@
                                                             class="avatar avatar-lg me-3" alt="{{ $city->weather_description }}">
                             </div>
                             <div class="text-end pt-1">
-                                <p class="text-sm mb-0 text-capitalize">{{ $city->name }}</p>
+                                <p class="text-sm mb-0 text-capitalize">{{ $city->name }}, {{ strtoupper
+($city->country) }}</p>
                                 <h4 class="mb-0">{{ $city->temp }}º</h4>
                                 <p class="text-xs mb-0">{{ ucfirst($city->weather_description) }}</p>
                             </div>
