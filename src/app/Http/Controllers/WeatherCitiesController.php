@@ -27,8 +27,9 @@ class WeatherCitiesController extends Controller
     public function create_confirm(Request $request) : View
     {
         $city_weather = WeatherRepository::getWeatherByName($request->city);
+        $db_found = WeatherCities::where('city_id', '=', $city_weather->city_id)->exists();
 
-        return view('pages.weather-cities.create_confirm', compact('city_weather'));
+        return view('pages.weather-cities.create_confirm', compact('city_weather', 'db_found'));
 
     }
 

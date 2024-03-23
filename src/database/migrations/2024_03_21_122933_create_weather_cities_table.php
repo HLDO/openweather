@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('weather_cities', function (Blueprint $table) {
             $table->id();
-            $table->integer('city_id')->index()->comment('City ID from OpenWeatherMap');
+            $table->integer('city_id')->index()->unique()->comment('City ID from OpenWeatherMap');
             $table->string('name')->comment('City name - Ex: Curitiba, BR');
             $table->string('weather_description', 100)->comment('Weather description - Ex: Nublado');
             $table->string('weather_icon', 10)->comment('Icon code from OpenWeatherMap - Ex: 04d');
