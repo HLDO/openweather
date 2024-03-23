@@ -15,12 +15,7 @@ class Kernel extends ConsoleKernel
         $schedule->
             command('command:weather_update')->
             timezone('America/Recife')->
-            // everyMinute();
-            everyFiveMinutes();
-            //everyTenMinutes();
-            //everyFifteenMinutes();
-            //everyThirtyMinutes();
-            //hourly();
+            everyThirtyMinutes();
     }
 
     /**

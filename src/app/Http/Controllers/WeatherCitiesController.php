@@ -24,7 +24,6 @@ class WeatherCitiesController extends Controller
         return view('pages.weather-cities.create');
     }
 
-    // public function store(WeatherCitiesRequest $request)
     public function create_confirm(Request $request) : View
     {
         $city_weather = WeatherRepository::getWeatherByName($request->city);
@@ -33,7 +32,6 @@ class WeatherCitiesController extends Controller
 
     }
 
-    // public function store(WeatherCitiesRequest $request)
     public function store(Request $request) : RedirectResponse
     {
         try
@@ -53,7 +51,6 @@ class WeatherCitiesController extends Controller
         return view('pages.weather-cities.form', compact('city'));
     }
 
-    // public function update(Request $request, WeatherCities $city)
     public function update(WeatherCitiesRequest $request, WeatherCities $city) : RedirectResponse
     {
         try
