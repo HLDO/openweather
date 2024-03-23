@@ -16,6 +16,8 @@ AdminLTE 3
 
 MySQL 8
 
+Redis
+
 ## Endpoints consultados
 - https://api.openweathermap.org/data/2.5/weather?q
 - https://api.openweathermap.org/data/2.5/weather?id
@@ -47,6 +49,7 @@ docker exec openweather-php php artisan db:seed --class=WeatherCitiesSeeder
 - Novas cidades podem ser cadastradas através do menu "Gerenciar cidades" para incluí-las no Dashboard;
 - Para verificar o clima de uma cidade, basta utilizar o campo de pesquisa "Pesquise sua cidade...", localizado no canto superior direito, informando o nome da cidade e o país com 2 dígitos. Ex: Curitiba, BR;
 - A cada 30 minutos o sistema atualizará as informações de clima das cidades cadastradas;
+- Os dados climáticos das cidades pesquisadas ficarão armazenados em cache por 30 minutos no Redis;
 - É possível rodar manualmente a atualização das informações de clima das cidades cadastradas, com mais de 30 minutos desde a última atualização, através do comando:
 ```bash
 docker exec openweather-php php artisan command:weather_update
@@ -67,8 +70,14 @@ docker exec openweather-php php artisan test
 <table>
   <tr>
     <td><img src="https://i.imgur.com/IcreBdT.png" width=270 height=480></td>
+  </tr>
+  <tr>
     <td><img src="https://i.imgur.com/qU0OKKY.png" width=480 height=270></td>
+  </tr>
+  <tr>
     <td><img src="https://i.imgur.com/1ks5LKK.png" width=480 height=270></td>
+  </tr>
+  <tr>
     <td><img src="https://i.imgur.com/wLMZRSR.png" width=480 height=270></td>
   </tr>
  </table>
