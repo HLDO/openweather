@@ -16,7 +16,7 @@ class WeatherRepository
         $client = new Client();
 
         // API endpoint URL with your desired location and units (e.g., London, Metric units)
-        $apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=".$city_name."&units=metric&lang=pt_br&appid=" . env('OPENWEATHER_API_KEY');
+        $apiUrl = env('OPENWEATHER_API_URL') . "&q=".$city_name."&appid=" . env('OPENWEATHER_API_KEY');
 
         try
         {
@@ -57,7 +57,7 @@ class WeatherRepository
         $client = new Client();
 
         // API endpoint URL with your desired location and units (e.g., London, Metric units)
-        $apiUrl = "https://api.openweathermap.org/data/2.5/weather?id=".$city_id."&units=metric&lang=pt_br&appid=" . env('OPENWEATHER_API_KEY');
+        $apiUrl = env('OPENWEATHER_API_URL') . "&id=".$city_id."&appid=" . env('OPENWEATHER_API_KEY');
 
         try
         {
