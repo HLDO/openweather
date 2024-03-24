@@ -2,12 +2,16 @@
 
 namespace Tests\App\Http\Controllers;
 
-use App\Models\User;
 use Tests\TestCase;
+use App\Models\WeatherCities;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
 
 class WeatherCityControllerTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_index(): void
     {
         // Fake user to authenticate

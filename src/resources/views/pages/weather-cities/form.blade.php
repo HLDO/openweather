@@ -27,6 +27,14 @@
                   <input type="text" name="name" class="form-control border border-2 p-2" id="inputName" value="{{ $city->name }}" onfocus="focused(this)" onfocusout="defocused(this)" required>
                 </div>
 
+                @error('country')
+                <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+                <div class="form-group col-12 col-md-6">
+                  <label for="inputCountry">País</label>
+                  <input type="text" name="country" class="form-control border border-2 p-2" id="inputCountry" value="{{ $city->country }}" onfocus="focused(this)" onfocusout="defocused(this)" minlength="2" maxlength="2" required>
+                </div>
+
                 @error('city_id')
                 <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror

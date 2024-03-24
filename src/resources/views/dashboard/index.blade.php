@@ -46,7 +46,6 @@
                             <div class="alert alert-primary alert-dismissible text-white text-center" role="alert">
                                 <span class="text-sm">Não há cidades cadastradas para a exibição de climas. <a href="{{ route('weather-cities.create') }}"
                                         class="alert-link text-white">Clique aqui</a> para adicionar uma nova cidade.</span>
-                                </button>
                             </div>
                         </div>
                     </div>

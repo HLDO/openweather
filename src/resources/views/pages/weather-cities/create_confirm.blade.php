@@ -14,7 +14,6 @@
             <div class="card-body p-3 pb-0">
                 <div class="alert alert-primary alert-dismissible text-white text-center" role="alert">
                     <span class="text-sm">{{ !$db_found ? 'Verifique se as informações estão corretas e clique em "Confirmar e gravar" para adicionar a nova cidade.' : 'Cidade já cadastrada!' }}</span>
-                    </button>
                 </div>
             </div>
 
