@@ -36,6 +36,7 @@ git clone https://github.com/HLDO/openweather.git
 ```bash
 docker-compose up -d
 ```
+- Durante o processo de criação dos containeres, um script rodará automaticamente o composer, migração de tabelas e será gerado um link simbólico do env (apenas para este teste, visto que aplicações em produção deve-se utilizar secret-manager e/ou geração de variáveis de ambiente via CI/CD);
 - Aguardar o término do download e execução dos containeres: openweather-php, openweather-mysql, openweather-nginx, openweather-redis.
 
 ## Utilização
@@ -71,17 +72,20 @@ docker exec openweather-php php artisan test
 ```
 
 #### Captura de telas
-<table>
+<table style="width: 100%;" >
+<tbody>
   <tr>
-    <td><img src="https://i.imgur.com/IcreBdT.png" width=270 height=480></td>
+    <td align="center"><img src="https://i.imgur.com/IcreBdT.png" width=501 height=538></td>
   </tr>
   <tr>
-    <td><img src="https://i.imgur.com/qU0OKKY.png" width=480 height=270></td>
+    <td align="center"><img src="https://i.imgur.com/qU0OKKY.png" width=501 height=249></td>
   </tr>
   <tr>
-    <td><img src="https://i.imgur.com/1ks5LKK.png" width=480 height=270></td>
+    <td align="center"><img src="https://i.imgur.com/YjYtxCu.png" width=501 height=249></td>
   </tr>
   <tr>
-    <td><img src="https://i.imgur.com/wLMZRSR.png" width=480 height=270></td>
+    <td align="center"><img src="https://i.imgur.com/wLMZRSR.png" width=501 height=249></td>
   </tr>
- </table>
+
+</tbody>
+</table>
