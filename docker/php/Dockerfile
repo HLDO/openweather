@@ -45,8 +45,8 @@ RUN useradd -u 1000 -ms /bin/bash -g laravel user
 
 COPY --chown=user:laravel . /var/www
 
-COPY migrate.sh /tmp
+COPY post-start.sh /tmp
 
 EXPOSE 9000
 
-CMD bash -c "/tmp/migrate.sh && cron && php-fpm"
+CMD bash -c "/tmp/post-start.sh && cron && php-fpm"
