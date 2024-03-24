@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repository\WeatherRepository;
+use App\Models\WeatherCities;
 use App\Traits\Funcoes;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -22,7 +23,7 @@ class WeatherCityController extends Controller
 
     public function search(Request $request) : View
     {
-        $city_weather = false;
+        $city_weather = $db_found = false;
 
         if( !empty($request->city_name) )
         {
@@ -42,8 +43,13 @@ class WeatherCityController extends Controller
                     Redis::set($this->convert_str($request->city_name), json_encode($city_weather), 'EX', 1800);
                 }
             }
+
+            if( $city_weather !== false)
+            {
+                $db_found = WeatherCities::where('city_id', '=', $city_weather->city_id)->exists();
+            }
         }
 
-        return view('pages.weather-city', compact('city_weather'));
+        return view('pages.weather-city', compact('city_weather', 'db_found'));
     }
 }

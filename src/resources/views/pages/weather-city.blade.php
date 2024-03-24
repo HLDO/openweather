@@ -56,8 +56,24 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if( $city_weather !== false && !$db_found )
+                                    <form method="POST" action="{{ route('weather-cities.store') }}" class="d-flex flex-column align-items-center">
+                                    @method('PUT')
+                                    @csrf
+                                        <input type="hidden" name="city_id" value="{{ $city_weather->city_id }}">
+                                        <input type="hidden" name="name" value="{{ $city_weather->name }}">
+                                        <input type="hidden" name="country" value="{{ $city_weather->country }}">
+                                        <input type="hidden" name="weather_description" value="{{ $city_weather->weather_description }}">
+                                        <input type="hidden" name="weather_icon" value="{{ $city_weather->weather_icon }}">
+                                        <input type="hidden" name="temp" value="{{ $city_weather->temp }}">
+                                        <input type="hidden" name="temp_min" value="{{ $city_weather->temp_min }}">
+                                        <input type="hidden" name="temp_max" value="{{ $city_weather->temp_max }}">
+                                        <input type="hidden" name="feels_like" value="{{ $city_weather->feels_like }}">
+                                        <input type="hidden" name="humidity" value="{{ $city_weather->humidity }}">
 
-
+                                        <button type="submit" class="btn btn-dark mt-3">Adicionar cidade ao Dashboard</button>
+                                    </form>
+                                @endif
                         </div>
                     </div>
                 </div>
@@ -70,7 +86,6 @@
                         <div class="card-body p-3 pb-0">
                             <div class="alert alert-primary alert-dismissible text-white text-center" role="alert">
                                 <span class="text-sm">A previsão do tempo para a cidade informada não pôde ser identificada.</span>
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -84,7 +99,6 @@
                         <div class="card-body p-3 pb-0">
                             <div class="alert alert-info alert-dismissible text-white" role="alert">
                                 <span class="text-sm">Informe o nome de uma cidade na caixa de pesquisa acima para receber a previsão do tempo.</span>
-                                </button>
                             </div>
                         </div>
                     </div>
